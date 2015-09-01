@@ -47,7 +47,7 @@ class FMB:
         self.board.analog[0].enable_reporting()
     
     	#pins
-        self.monitor_pin = self.board.get_pin('d:3:p')
+        self.monitor_pin = self.board.get_pin('d:3:p') #is this pins 3?
         self.stim_pin = self.board.get_pin('d:6:p')
         self.off_on = self.board.get_pin('d:9:p')
         self.trigger = self.board.get_pin('d:5:p')
@@ -56,7 +56,7 @@ class FMB:
         self.app = wx.App(False)
         self.wx_res  = wx.GetDisplaySize()
         self.wx_PPI = wx.ScreenDC().GetPPI()
-        self.monitor_width = (2.54 * self.wx_res[0]/self.wx_PPI[0])/3
+        self.monitor_width = (2.54 * self.wx_res[0]/self.wx_PPI[0])/3 #is this in cm? m?
         self.mon = monitors.Monitor("mymon", distance = 13, width = self.monitor_width)
         self.mon.currentCalib['sizePix'] = [self.wx_res[0], self.wx_res[1]]
         self.mon.saveMon()
@@ -70,7 +70,8 @@ class FMB:
 
   
     def habituation(self, time):
-        both_screens_gray(1800)
+        habitTime = 1800 #added variable
+        both_screens_gray(habitTime) #habitTime in seconds
         
     def training(self, **kwargs):
         #get parameters
@@ -157,7 +158,7 @@ class FMB:
 if __name__ == "__main__":
     experiment = FMB()
     #experiment.habituation()
-    experiment.training(screen = 2, reversals = 5, orientation = 135)
+    experiment.training(screen = 2, reversals = 5, orientation = 135) #so if screen = 2, then PR grating shows in 2, and gray on 1?
         
 
 
