@@ -1,0 +1,5 @@
+Here is the script I use for manual calibration. I am still working on a step-by-step guide, but hopefully this will help get you started.
+
+	•	Running it will let you step through the luminance levels for the RGB channels and grayscale (hit spacebar to proceed at each screen), which you can measure at your recording distance with a photometer. You can then populate the lists Rlvls, Glvls, Blvls, and Wlvls with the values you get. The lists are currently filled with example values which will plot the canonical gamma curve you should expect.
+	•	The commented out section will set the gamma grid for the selected monitor (currently "colorTest2" but you can customize it to your needs). This step simulates the automatic calibration psychopy performs with a photometer.
+	•	Our setup is not fully supported by psychopy, so we have to build our own stimuli. Below the commented out section is an example of how we generate a gabor patch. Since it is a grayscale stim we only need to use the Wgamma value. You will not need to do this if the previous step works for you.
